@@ -1,0 +1,22 @@
+{
+  "name": "revising-ts",
+  "version": "1.0.0",
+  "description": "Code written while revising the basics of Typescript",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iankuratri/revising-ts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iankuratri/revising-ts/issues"
+  },
+  "homepage": "https://github.com/iankuratri/revising-ts#readme",
+  "devDependencies": {
+    "typescript": "^4.6.2"
+  }
+}
