@@ -11,13 +11,15 @@ let address = {
     state: "Haryana",
 };
 /**
- * Arrays & Tuples
+ * Arrays
  */
 let ids = [1, 2, 3, 4, 5];
 // Gives Error: Argument of type 'string' is not assignable to parameter of type 'number'.
 // ids.push("hello");
 let arr = [true, {}, 1, undefined, null, []];
-// Tuple
+/**
+ * Tuples
+ */
 let person = ["Ankur", 27, true];
 // Tuple Array
 let employees;
@@ -26,3 +28,49 @@ employees = [
     [2, "Rajat"],
     [3, "Mohit"],
 ];
+/**
+ * Unions
+ */
+let pid = 10;
+pid = "123";
+/**
+ * Enum
+ */
+var Direction;
+(function (Direction) {
+    Direction[Direction["Up"] = 0] = "Up";
+    Direction[Direction["Down"] = 1] = "Down";
+    Direction[Direction["Left"] = 2] = "Left";
+    Direction[Direction["Right"] = 3] = "Right";
+})(Direction || (Direction = {}));
+console.log(Direction.Up);
+console.log(Direction[0]);
+const user = {
+    id: 1,
+    name: "Ankur",
+};
+/**
+ * Type Assertion
+ */
+let cid = 1;
+// let customerId = <number>cid;
+let customerId = cid;
+// Gives Error: Type 'string' is not assignable to type 'number'.
+// customerId = "1"
+/**
+ * Functions
+ */
+function addNum(x, y) {
+    return x + y;
+}
+console.log(addNum(1, 2));
+function log(message) {
+    console.log(message);
+}
+const marvelCharacter = {
+    id: 1,
+    name: "Iron Man",
+};
+marvelCharacter.age = 50;
+const add = (x, y) => x + y;
+const multiply = (x, y) => x * y;
