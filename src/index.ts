@@ -130,3 +130,74 @@ interface MathFunc {
 
 const add: MathFunc = (x, y) => x + y;
 const multiply: MathFunc = (x, y) => x * y;
+
+/**
+ * Classes
+ */
+
+interface PersonInterface {
+  name: string;
+  eats: () => void;
+  sleeps: () => void;
+}
+
+class Person implements PersonInterface {
+  private id: number;
+  name: string;
+
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+  }
+
+  eats() {
+    console.log(`${this.name} eats pizza.`);
+  }
+
+  sleeps() {
+    console.log(`${this.name} sleeps at 11PM.`);
+  }
+}
+
+const ankur = new Person(1, "Ankur");
+
+console.log(ankur);
+
+// Gives Error: Property 'id' is private and only accessible within class 'Person'.
+// ankur.id = 1;
+
+ankur.eats();
+ankur.sleeps();
+
+/**
+ * Access Modifiers
+ *
+ * Private – Access is limited inside class only.
+ * Public – Can be access from anywhere, access is not restricted.
+ * Protected – Access is limited to the containing class or types derived from the containing class.
+ */
+
+/**
+ * Extending Classes (Subclasses)
+ */
+
+class Employee extends Person {
+  position: string;
+
+  constructor(id: number, name: string, position: string) {
+    super(id, name);
+    this.position = position;
+  }
+
+  works() {
+    console.log(`${this.name} works as a ${this.position}`);
+  }
+}
+
+const rajat = new Employee(2, "Rajat", "Backend Developer");
+
+console.log(rajat);
+
+rajat.eats();
+rajat.sleeps();
+rajat.works();
