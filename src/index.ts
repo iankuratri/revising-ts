@@ -201,3 +201,17 @@ console.log(rajat);
 rajat.eats();
 rajat.sleeps();
 rajat.works();
+
+/**
+ * Generics
+ */
+
+function getArray<T>(items: T[]): T[] {
+  return new Array().concat(items);
+}
+
+let numArray = getArray<number>([1, 2, 3]);
+let strArray = getArray<string>(["a", "b", "c"]);
+
+// Gives Error: Argument of type 'string' is not assignable to parameter of type 'number'.
+// numArray.push("a");

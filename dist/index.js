@@ -116,3 +116,13 @@ console.log(rajat);
 rajat.eats();
 rajat.sleeps();
 rajat.works();
+/**
+ * Generics
+ */
+function getArray(items) {
+    return new Array().concat(items);
+}
+let numArray = getArray([1, 2, 3]);
+let strArray = getArray(["a", "b", "c"]);
+// Gives Error: Argument of type 'string' is not assignable to parameter of type 'number'.
+// numArray.push("a");
