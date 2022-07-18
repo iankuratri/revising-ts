@@ -74,3 +74,29 @@ function greet(name: string | null | undefined) {
 
 greet("Ankur");
 greet(null);
+
+/**
+ * Optional Chaining
+ */
+
+type Customer = {
+  birthday?: Date;
+};
+
+function getCustomer(id: number): Customer | null {
+  return id === 0 ? null : { birthday: new Date() };
+}
+
+let customer = getCustomer(0);
+// Optional property access operator - used with objects
+console.log(customer?.birthday?.getFullYear());
+
+let anotherCustomer = getCustomer(1);
+console.log(anotherCustomer?.birthday?.getFullYear());
+
+// Optional element access operator - used with arrays
+// customers?.[0]
+
+// Optional call - used with functions
+let logger: any = null;
+logger?.("Hello World!");
