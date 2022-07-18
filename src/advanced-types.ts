@@ -114,3 +114,11 @@ let ride = {
 };
 
 console.log(ride);
+
+/**
+ * Type Assertions
+ */
+
+// HTMLElement to HTMLInputElement
+let phone = document.getElementById("phone") as HTMLInputElement;
+let email = <HTMLInputElement>document.getElementById("email");
