@@ -62,3 +62,15 @@ type Quantity = 50 | 100;
 let quantity: Quantity = 100;
 
 type Metric = "cm" | "inch";
+
+/**
+ * Nullable Types
+ */
+
+function greet(name: string | null | undefined) {
+  if (name) console.log("Hi " + name);
+  else console.log("Hi User");
+}
+
+greet("Ankur");
+greet(null);
