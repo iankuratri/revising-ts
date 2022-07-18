@@ -126,4 +126,4 @@ let numArray = getArray([1, 2, 3]);
 let strArray = getArray(["a", "b", "c"]);
 // Gives Error: Argument of type 'string' is not assignable to parameter of type 'number'.
 // numArray.push("a");
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=basics.js.map
