@@ -100,3 +100,17 @@ console.log(anotherCustomer?.birthday?.getFullYear());
 // Optional call - used with functions
 let logger: any = null;
 logger?.("Hello World!");
+
+/**
+ * The Nullish Coaelscing Operator
+ */
+
+let speed: number | null = null;
+
+let ride = {
+  // Falsy (null, undefined)
+  // Nullish Coaelscing Operator
+  speed: speed ?? 30,
+};
+
+console.log(ride);
