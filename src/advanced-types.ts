@@ -33,3 +33,32 @@ const myWeight = kgToLbs(88);
 const myFriendWeight = kgToLbs("75Kg");
 
 console.log({ myWeight, myFriendWeight });
+
+/**
+ * Intersection Types
+ */
+
+type Draggable = {
+  drag: () => void;
+};
+
+type Resiable = {
+  resize: () => void;
+};
+
+type UIWidget = Draggable | Resiable;
+
+let textBox: UIWidget = {
+  drag: () => {},
+  resize: () => {},
+};
+
+/**
+ * Literal Types
+ */
+
+type Quantity = 50 | 100;
+
+let quantity: Quantity = 100;
+
+type Metric = "cm" | "inch";
