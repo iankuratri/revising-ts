@@ -122,3 +122,15 @@ console.log(ride);
 // HTMLElement to HTMLInputElement
 let phone = document.getElementById("phone") as HTMLInputElement;
 let email = <HTMLInputElement>document.getElementById("email");
+
+/**
+ * Never Type
+ */
+
+function reject(msg: string): never {
+  throw new Error(msg);
+}
+
+reject("invalid input");
+// Unreachable code detected.
+// console.log("I am here.");
