@@ -71,3 +71,45 @@ let ride2 = new Ride();
 ride2.start();
 
 console.log(Ride.activeRides);
+
+/**
+ * Method Overriding
+ */
+
+class Boy {
+  constructor(public name: string) {}
+
+  about(): void {
+    console.log(this.name + " is an intelligent boy..");
+  }
+}
+
+class Student extends Boy {
+  constructor(
+    public rollnumber: number,
+    public marks: number,
+    public name: string
+  ) {
+    super(name);
+  }
+
+  displayStudentInformation(): void {
+    console.log(
+      "Name : " +
+        this.name +
+        ", Roll Number : " +
+        this.rollnumber +
+        ", Scores : " +
+        this.marks +
+        " out of 100"
+    );
+  }
+
+  about(): void {
+    console.log(this.name + " scores well...");
+  }
+}
+
+let student = new Student(2, 96, "Rohit");
+student.displayStudentInformation();
+student.about();
