@@ -16,15 +16,14 @@ class Account {
     this._balance += amount;
   }
 
-  getBalance(): number {
+  get balance(): number {
     return this._balance;
   }
 }
 
 // Creating object from a class
-
 let account = new Account(1, "Mosh", 0);
 account.deposit(100);
 
-console.log(account.getBalance());
+console.log(account.balance);
 console.log(account instanceof Account);
