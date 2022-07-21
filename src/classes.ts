@@ -113,3 +113,39 @@ class Student extends Boy {
 let student = new Student(2, 96, "Rohit");
 student.displayStudentInformation();
 student.about();
+
+/**
+ * Polymorphism
+ */
+
+class CollegeStudent {
+  constructor(public firstName: string, public lastName: string) {}
+
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+class Professor extends CollegeStudent {
+  override get fullName() {
+    return `Professor ${super.fullName}`;
+  }
+}
+
+class Principal extends CollegeStudent {
+  override get fullName() {
+    return `Principal ${super.fullName}`;
+  }
+}
+
+function printNames(students: CollegeStudent[]) {
+  for (const student of students) {
+    console.log(student.fullName);
+  }
+}
+
+printNames([
+  new CollegeStudent("Ankur", "Atri"),
+  new Professor("Neha", "Dhupiya"),
+  new Principal("Rohit", "Shetty"),
+]);
