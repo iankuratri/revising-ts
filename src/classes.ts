@@ -149,3 +149,22 @@ printNames([
   new Professor("Neha", "Dhupiya"),
   new Principal("Rohit", "Shetty"),
 ]);
+
+/**
+    
+TypeScript supports three access modifiers - public, private, and protected.
+
+1.  Public - By default, members (properties and methods) of the TypeScript class are 
+    public - so you don’t need to prefix members with the public keyword. 
+    Public members are accessible everywhere without restrictions even from the 
+    multiple level sub-classes without any compile errors.
+
+2.  Private - A private member cannot be accessed outside of its containing class. 
+    Private members can be accessed only within the class and even their sub-classes 
+    won't be allowed to use their private properties and attributes.
+
+3.  Protected - A protected member cannot be accessed outside of its containing class. 
+    Protected members can be accessed only within the class and by the 
+    instance of its sub/child class.
+
+ */
