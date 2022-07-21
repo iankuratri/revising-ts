@@ -167,4 +167,32 @@ TypeScript supports three access modifiers - public, private, and protected.
     Protected members can be accessed only within the class and by the 
     instance of its sub/child class.
 
+*/
+
+/**
+ * Abstract Classes and Methods
+ *
+ * Abstract classes are base classes from which other classes may be derived.
+ * They may not be instantiated directly. Unlike an interface,
+ * an abstract class may contain implementation details for its members.
+ * The abstract keyword is used to define abstract classes
+ * as well as abstract methods within an abstract class.
  */
+
+abstract class Shape {
+  constructor(public color: string) {}
+
+  abstract render(): any;
+}
+
+class Circle extends Shape {
+  constructor(public radius: number, color: string) {
+    super(color);
+  }
+
+  override render(): void {
+    console.log("Rendering a circle...");
+  }
+}
+
+// let shape = new Shape("black"); - Cannot create an instance of an abstract class.
