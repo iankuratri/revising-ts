@@ -104,14 +104,14 @@ store.add({ name: "iphone", price: 1000 });
 store.search("name", "iphone");
 store.search("price", 1000);
 
-// Warning: Argument of type '"nonExistingProperty"' is not assignable to parameter of type 'keyof Item'.
+// Compilation Error: Argument of type '"nonExistingProperty"' is not assignable to parameter of type 'keyof Item'.
 // store.search("nonExistingProperty", 1);
 
 // Passing on the generic type parameter
 class CompressibleStore<T> extends Store<T> {
   compress() {}
 }
-// let store = new CompressibleStore<Item>();
+let compressibleStore = new CompressibleStore<Item>();
 
 // Restricting the generic type parameter
 class SearchableStore<T extends { name: string }> extends Store<T> {
@@ -122,3 +122,30 @@ class SearchableStore<T extends { name: string }> extends Store<T> {
 
 // Fixing the the generic type parameter
 class ItemStore extends Store<Item> {}
+
+/**
+ * Type Mapping
+ *
+ * Utility Types
+ * https://www.typescriptlang.org/docs/handbook/utility-types.html
+ */
+
+type ReadOnly<T> = {
+  readonly [K in keyof T]: T[K];
+};
+
+let readonlyItem: ReadOnly<Item> = {
+  name: "a",
+  price: 1,
+};
+
+// Compilation Error: Cannot assign to 'name' because it is a read-only property.
+// readonlyItem.name = "b"
+
+type Optional<T> = {
+  [K in keyof T]?: T[K];
+};
+
+type Nullable<T> = {
+  [K in keyof T]?: T[K] | null;
+};
