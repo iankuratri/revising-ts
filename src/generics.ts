@@ -88,8 +88,24 @@ class Store<T> {
   add(obj: T) {
     this._objects.push(obj);
   }
+
+  /**
+   * The keyof Operator
+   */
+
+  // T is item here, keyof T is 'name' or 'price'
+  search(property: keyof T, value: unknown): T | undefined {
+    return this._objects.find((obj) => obj[property] === value);
+  }
 }
-// let store = new Store<Item>();
+
+let store = new Store<Item>();
+store.add({ name: "iphone", price: 1000 });
+store.search("name", "iphone");
+store.search("price", 1000);
+
+// Warning: Argument of type '"nonExistingProperty"' is not assignable to parameter of type 'keyof Item'.
+// store.search("nonExistingProperty", 1);
 
 // Passing on the generic type parameter
 class CompressibleStore<T> extends Store<T> {
