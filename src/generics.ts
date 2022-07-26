@@ -72,3 +72,37 @@ function print<T extends { name: string }>(value: T) {}
 
 // Restrict using an interface or a class
 function print<T extends Person>(value: T) {}
+
+/**
+ * Extending Generic Classes
+ */
+
+interface Item {
+  name: string;
+  price: number;
+}
+
+class Store<T> {
+  protected _objects: T[] = [];
+
+  add(obj: T) {
+    this._objects.push(obj);
+  }
+}
+// let store = new Store<Item>();
+
+// Passing on the generic type parameter
+class CompressibleStore<T> extends Store<T> {
+  compress() {}
+}
+// let store = new CompressibleStore<Item>();
+
+// Restricting the generic type parameter
+class SearchableStore<T extends { name: string }> extends Store<T> {
+  find(name: string): T | undefined {
+    return this._objects.find((obj) => obj.name === name);
+  }
+}
+
+// Fixing the the generic type parameter
+class ItemStore extends Store<Item> {}
