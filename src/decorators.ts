@@ -44,3 +44,26 @@ function Pipe(value: number) {
 
 @Pipe(100)
 class CurrencyPipe {}
+
+/**
+ * Method Decorators
+ */
+
+function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
+  const original = descriptor.value as Function;
+  descriptor.value = function (...args: any) {
+    console.log("Before");
+    original.call(this, ...args);
+    console.log("After");
+  };
+}
+
+class Cat {
+  @Log
+  say(message: string) {
+    console.log("Cat says:", message);
+  }
+}
+
+let cat = new Cat();
+cat.say("Meow...");
