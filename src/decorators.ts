@@ -26,6 +26,8 @@ function Component(constructor: Function) {
   };
 }
 
+// Decorator Composition:
+// Applying multiple decorator to a class, will be called in bottom to top approach
 @Component
 @Pipe(10)
 class ProfileComponent {}
