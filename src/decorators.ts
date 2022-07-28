@@ -67,3 +67,31 @@ class Cat {
 
 let cat = new Cat();
 cat.say("Meow...");
+
+/**
+ * Accessor Decorators
+ */
+
+function Capitalize(
+  target: any,
+  methodName: string,
+  descriptor: PropertyDescriptor
+) {
+  const original = descriptor.get;
+  descriptor.get = function () {
+    const result = original?.call(this);
+    return typeof result === "string" ? result.toUpperCase() : result;
+  };
+}
+
+class Human {
+  constructor(public firstName: string, public lastName: string) {}
+
+  @Capitalize
+  get fullName(): string {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+let human = new Human("ankur", "atri");
+console.log(human.fullName);
