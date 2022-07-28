@@ -27,4 +27,18 @@ function Component(constructor: Function) {
 }
 
 @Component
+@Pipe(10)
 class ProfileComponent {}
+
+/**
+ * Parameterized Decorators
+ */
+
+function Pipe(value: number) {
+  return function (constructor: Function) {
+    console.log("Pipe decorator called with value:", value);
+  };
+}
+
+@Pipe(100)
+class CurrencyPipe {}
