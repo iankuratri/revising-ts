@@ -133,3 +133,27 @@ class Register {
 }
 
 let newUser = new Register("1234");
+
+/**
+ * Parameter Decorators
+ */
+
+type WatchedParameter = {
+  methodName: string;
+  propertyIndex: number;
+};
+
+const watchedParameter: WatchedParameter[] = [];
+
+function Watch(target: any, methodName: string, propertyIndex: number) {
+  watchedParameter.push({
+    methodName,
+    propertyIndex,
+  });
+}
+
+class Vehicle {
+  move(@Watch speed: number) {}
+}
+
+console.log(watchedParameter);
