@@ -95,3 +95,41 @@ class Human {
 
 let human = new Human("ankur", "atri");
 console.log(human.fullName);
+
+/**
+ * Property Decorators
+ */
+
+function MinLength(length: number) {
+  return (target: any, propertyName: string) => {
+    let value: string;
+
+    const descriptor: PropertyDescriptor = {
+      get() {
+        return value;
+      },
+      set(newValue: string) {
+        if (newValue.length < length) {
+          throw new Error(
+            `${propertyName} should be atleast ${length} character long.`
+          );
+        }
+
+        value = newValue;
+      },
+    };
+
+    Object.defineProperty(target, propertyName, descriptor);
+  };
+}
+
+class Register {
+  @MinLength(4)
+  password: string;
+
+  constructor(password: string) {
+    this.password = password;
+  }
+}
+
+let newUser = new Register("1234");
